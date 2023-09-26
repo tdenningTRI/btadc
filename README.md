@@ -8,7 +8,7 @@ ADC pins are 34 and 35. Upload and provide power to the arduino. It will setup B
 The Pi needs to be configured to use bluetooth as its comm port. 
 Follow these instructions: https://forums.raspberrypi.com/viewtopic.php?p=947185
 
-After that, pair the devices and run btadc.py [path] [samples]
+After that, pair the devices and run python3.7 btadc.py [path] [samples]
 
 where path is the name/destination of the output csv file and samples is the number of samples you want to take. 
 
