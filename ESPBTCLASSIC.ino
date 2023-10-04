@@ -4,8 +4,6 @@
 
 
 #define SAMPLESPERSTEP 1000 //Set this to whatever you want 
-const int stepsPerRevolution = 200;  // change this to fit the number of steps per revolution
-// for your motor
 
 // initialize the stepper library on pins 8 through 11:
 AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
