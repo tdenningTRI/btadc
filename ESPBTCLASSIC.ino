@@ -1,6 +1,6 @@
 #include "BluetoothSerial.h"
 #include "driver/adc.h"
-#include <Stepper.h>
+#include <AccelStepper.h>
 
 
 #define SAMPLESPERSTEP 1000 //Set this to whatever you want 
@@ -8,7 +8,8 @@ const int stepsPerRevolution = 200;  // change this to fit the number of steps p
 // for your motor
 
 // initialize the stepper library on pins 8 through 11:
-Stepper myStepper(stepsPerRevolution, 8, 9, 10, 11);
+AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
+
 String device_name = "Magnometer";
 int reading, counter = 0;
 volatile int j = -1024;
@@ -62,10 +63,12 @@ void loop() {
   SerialBT.write(buff[0]);
   SerialBT.write(buff[1]);
   counter++;
-  if (counter > SAMPLESPERSTEP) 
+  if (counter % SAMPLESPERSTEP == 0) 
   {
-    myStepper.step(1);
-    counter = 0;
+    stepper.move(1);
+    //stepper.runToPosition();
+    //Serial.println("IN");
+    stepper.run();
   } 
 }
 }
