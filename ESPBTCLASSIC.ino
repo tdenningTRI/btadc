@@ -4,9 +4,12 @@
 
 
 #define SAMPLESPERSTEP 1000 //Set this to whatever you want 
+#define p1 19
+#define p2 16
+#define p3 17
+#define p4 21
 
-// initialize the stepper library on pins 8 through 11:
-AccelStepper stepper; // Defaults to AccelStepper::FULL4WIRE (4 pins) on 2, 3, 4, 5
+AccelStepper stepper = AccelStepper(AccelStepper::FULL4WIRE, p1,p2,p3,p4); //bottom left 4 pins. You can change with define statements above
 
 String device_name = "Magnometer";
 int reading, counter = 0;
